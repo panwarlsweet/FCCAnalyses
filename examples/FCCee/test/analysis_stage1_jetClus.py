@@ -26,7 +26,7 @@ ROOT.gInterpreter.Declare("""
     cluster_sequences.clear();
     std::vector<fastjet::PseudoJet> reclus_jets;
     std::vector<fastjet::PseudoJet> subjets;
-    ROOT::VecOps::RVec<float> lundVals;
+    ROOT::VecOps::RVec<float> Vals;
 
     fastjet::JetDefinition jet_def(fastjet::antikt_algorithm, fastjet::JetDefinition::max_allowable_R);
     for (unsigned int iJet=0; iJet < 1; iJet++)
@@ -57,10 +57,10 @@ ROOT.gInterpreter.Declare("""
         j1 = j2;                                                                                                                                           
         j2 = jTemp;                                                                                                                                        
       }                                                                                                                                                    
-      lundVals.push_back( std::log(1/j1.delta_R(j2)) );                                                                            
+      Vals.push_back( std::log(1/j1.delta_R(j2)) );                                                                            
     } 
    }
-    return lundVals;    
+    return Vals;    
   }
 """)
 
